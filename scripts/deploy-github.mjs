@@ -230,12 +230,30 @@ try {
   console.error(e.stdout ?? '');
   console.error(e.stderr ?? '');
   console.error(e.message ?? '');
-  die(
-    '推送失败。常见原因：\n' +
-      '  · 令牌权限不足（fine-grained 需 Contents: Read and write）\n' +
-      '  · 仓库名已存在但不属于当前账号\n' +
-      '  · 网络问题（可重试）',
+  // git 协议走的是 github.com，很多网络环境能通 api.github.com 却卡住 github.com。
+  // 这时改用 Git Data API 直接操作仓库的 Git 数据库 —— 只依赖 api.github.com。
+  const blocked = /unable to access|CONNECT tunnel|Empty reply|Could not resolve/i.test(
+    (e.stdout ?? '') + (e.stderr ?? '') + (e.message ?? ''),
   );
+  if (!blocked) {
+    die(
+      '推送失败。常见原因：\n' +
+        '  · 令牌权限不足（fine-grained 需 Contents: Read and write）\n' +
+        '  · 仓库名已存在但不属于当前账号\n' +
+        '  · 网络问题（可重试）',
+    );
+  }
+  warn('git 协议不可达（github.com 被网络限制），自动改用 Git Data API 推送…');
+  try {
+    execFileSync(
+      process.execPath,
+      [path.join(ROOT, 'scripts/push-via-api.mjs'), '--account', ACCOUNT, '--repo', REPO],
+      { cwd: ROOT, encoding: 'utf8', stdio: 'inherit' },
+    );
+    ok(`已通过 Git Data API 推送到 https://github.com/${ACCOUNT}/${REPO}`);
+  } catch {
+    die('Git Data API 推送也失败了');
+  }
 }
 
 /* ------------------------------------------------------------------ */

@@ -1,0 +1,37 @@
+name: 规则安全校验
+
+# 在自建规则变更进入主分支前把关。
+# 这是最后一道闸门：不允许任何未通过校验的规则合入。
+
+on:
+  pull_request:
+    paths:
+      - 'rules/local/**'
+      - 'scripts/rule-validator/**'
+      - 'fixtures/snapshots/**'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci || npm install
+
+      - name: 回归测试
+        run: npm test
+
+      - name: 校验自建规则
+        run: node scripts/rule-validator/validate.mjs --all
+
+      - name: 订阅结构自洽性校验
+        run: node scripts/rule-validator/validate.mjs --subscription dist/gkd.json5
+
+      - name: 全量语法检查
+        run: node scripts/rules-aggregator/check-syntax.mjs

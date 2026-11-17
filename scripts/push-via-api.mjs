@@ -187,14 +187,16 @@ if (head.length > 0) {
 const WORKFLOW_DIR = '.github/workflows/';
 const isWorkflow = (p) => p.startsWith(WORKFLOW_DIR);
 const workflowFiles = files.filter((f) => isWorkflow(f.path));
+// 默认把 workflow 一起推；令牌缺 "Workflows: write" 时会自动回退到不含 workflow 的版本。
 const otherFiles = files.filter((f) => !isWorkflow(f.path));
 
 const INLINE_LIMIT = 200 * 1024;
 const treeEntries = [];
 let blobCount = 0;
 
-for (const f of otherFiles) {
-  if (f.size <= INLINE_LIMIT) {
+const allFiles = [...otherFiles, ...workflowFiles];
+for (const f of allFiles) {
+  if (f.size <= INLINE_LIMIT && !isWorkflow(f.path)) {
     treeEntries.push({
       path: f.path,
       mode: '100644',
@@ -212,8 +214,8 @@ for (const f of otherFiles) {
   }
 }
 ok(
-  `tree 条目就绪：${treeEntries.length} 项（${blobCount} 个大文件走 blob）` +
-    `，另有 ${workflowFiles.length} 个 workflow 文件待处理`,
+  `tree 条目就绪：${treeEntries.length} 项` +
+    `（${blobCount} 个走 blob，含 ${workflowFiles.length} 个 workflow 文件）`,
 );
 
 /* 2. 建树 */
@@ -222,19 +224,24 @@ if (process.env.DEBUG_TREE_OUT) {
   await writeFile(process.env.DEBUG_TREE_OUT, JSON.stringify({ tree: treeEntries }), 'utf8');
 }
 let tree;
+const entriesWithoutWorkflow = treeEntries.filter((e) => !isWorkflow(e.path));
 try {
   tree = await api('/git/trees', {
     method: 'POST',
     body: JSON.stringify({ tree: treeEntries }),
   });
+  if (workflowFiles.length) ok(`已包含 ${workflowFiles.length} 个 workflow 文件`);
 } catch (e) {
-  die(
-    `创建 tree 失败: ${e.message}\n` +
-      (workflowFiles.length
-        ? `提示: 若报错涉及 .github/workflows，说明令牌缺少 "Workflows: write" 权限。\n` +
-          `     请在令牌设置里勾上 Repository permissions → Workflows: Write，然后重跑。`
-        : ''),
-  );
+  if (!workflowFiles.length) die(`创建 tree 失败: ${e.message}`);
+  // 极可能是令牌缺 "Workflows: write"（GitHub 对 .github/workflows/ 的保护）。
+  // 这个报错信息极具误导性 —— 实测同一份内容换个路径就 201 了。
+  warn(`带 workflow 建 tree 失败（${e.message}）`);
+  warn('多半是令牌缺少 "Workflows: write" 权限 —— 先推其余文件，workflow 稍后补。');
+  tree = await api('/git/trees', {
+    method: 'POST',
+    body: JSON.stringify({ tree: entriesWithoutWorkflow }),
+  });
+  workflowFiles.length = 0;
 }
 ok(`tree: ${tree.sha}（${tree.tree?.length ?? '?'} 项）`);
 

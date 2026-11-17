@@ -1,0 +1,110 @@
+name: 规则聚合与构建
+
+# 定时聚合社区源 + 构建订阅产物 + 发布到 GitHub Pages。
+#
+# 频率说明：社区源更新不频繁，但规则腐化需要及时发现，
+# 故设为每 6 小时一次；版本号单调递增，客户端只在 version 变大时才更新。
+#
+# 部署地址写在 subscription.config.json 的 baseUrl —— 改地址改那一处即可，
+# 不用动代码、不用配 CI 密钥。
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: '强制构建（即使规则无变化也递增版本）'
+        required: false
+        default: false
+        type: boolean
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/rules-aggregator/**'
+      - 'scripts/rule-validator/**'
+      - 'rules/local/**'
+      - 'subscription.config.json'
+      - 'package.json'
+
+concurrency:
+  group: aggregate-rules
+  cancel-in-progress: false
+
+permissions:
+  contents: write # 把产物提交回 main（raw.githubusercontent.com 兜底用）
+  pages: write # 发布到 GitHub Pages
+  id-token: write # Pages 部署的 OIDC 鉴权
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'   # 必须 >= 22：选择器引擎依赖 WebAssembly GC
+          cache: npm
+
+      - name: 安装依赖
+        run: npm ci || npm install
+
+      - name: 探测社区源可用性
+        run: node scripts/rules-aggregator/probe-sources.mjs
+
+      - name: 聚合社区源
+        # --strict-url：订阅地址还是占位符时直接失败，
+        # 避免产出「能添加、但自动更新永远失败」的订阅。
+        run: node scripts/rules-aggregator/aggregate.mjs --strict-url
+
+      - name: 回归测试
+        run: npm test
+
+      - name: 校验自建规则（安全闸门）
+        continue-on-error: true
+        run: |
+          if [ -d rules/local ]; then
+            node scripts/rule-validator/validate.mjs --all || \
+              echo "::warning::部分自建规则未通过校验，它们不会阻断聚合但需人工确认"
+          fi
+
+      - name: 订阅结构自洽性校验
+        run: node scripts/rule-validator/validate.mjs --subscription dist/gkd.json5
+
+      - name: 全量语法检查
+        run: node scripts/rules-aggregator/check-syntax.mjs
+
+      - name: 上传 Pages 产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+      - name: 提交产物到 main（raw.githubusercontent.com 兜底）
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add dist/
+          if git diff --staged --quiet; then
+            echo "规则无变化，跳过提交（客户端不会收到更新，这是预期行为）"
+          else
+            git commit -m "chore(rules): 聚合更新 version=$(node -e 'console.log(require(\"./dist/gkd.version.json5\").version)')"
+            git push
+          fi
+
+  # Pages 部署需要单独一个 job：它要用 build 产出的 artifact，
+  # 而 artifact 只能跨 job 传递。
+  deploy-pages:
+    needs: aggregate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 配置 Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
