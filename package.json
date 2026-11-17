@@ -1,0 +1,32 @@
+{
+  "name": "gkd-skip-ad-pipeline",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "跳开屏广告自动修复流水线",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "aggregate": "node ./scripts/rules-aggregator/aggregate.mjs",
+    "aggregate:strict": "node ./scripts/rules-aggregator/aggregate.mjs --strict-url",
+    "probe": "node ./scripts/rules-aggregator/probe-sources.mjs",
+    "check-syntax": "node ./scripts/rules-aggregator/check-syntax.mjs",
+    "validate": "node ./scripts/rule-validator/validate.mjs",
+    "validate:dist": "node ./scripts/rule-validator/validate.mjs --subscription dist/gkd.json5",
+    "corpus": "node ./scripts/snapshot-corpus/generate-corpus.mjs",
+    "serve": "node ./scripts/serve-subscription.mjs",
+    "serve:lan": "node ./scripts/serve-subscription.mjs --port 8788",
+    "server": "node ./server/server.mjs",
+    "deploy:check": "node ./scripts/check-deployment.mjs",
+    "deploy:github": "node ./scripts/deploy-github.mjs",
+    "test": "node --test \"scripts/tests/*.test.mjs\"",
+    "test:validator": "node --test scripts/tests/validator.test.mjs",
+    "test:server": "node --test scripts/tests/server.test.mjs",
+    "ci": "npm run test && npm run validate:dist && npm run check-syntax"
+  },
+  "dependencies": {
+    "@gkd-kit/selector": "^0.6.1",
+    "json5": "^2.2.3"
+  }
+}

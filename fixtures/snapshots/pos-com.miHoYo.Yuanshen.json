@@ -1,0 +1,37 @@
+{
+  "appId": "com.miHoYo.Yuanshen",
+  "appName": "原神",
+  "activityId": "com.miHoYo.Yuanshen.SplashActivity",
+  "kind": "positive",
+  "expectText": "跳过",
+  "expect": {
+    "text": "跳过"
+  },
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.miHoYo.Yuanshen:id/splash_ad_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.miHoYo.Yuanshen:id/skip_btn",
+          "desc": "跳过广告",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

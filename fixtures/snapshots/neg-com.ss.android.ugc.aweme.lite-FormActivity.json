@@ -1,0 +1,53 @@
+{
+  "appId": "com.ss.android.ugc.aweme.lite",
+  "appName": "抖音极速版",
+  "activityId": "com.ss.android.ugc.aweme.lite.FormActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.LinearLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.ss.android.ugc.aweme.lite:id/form_title",
+          "text": "完善资料",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.ss.android.ugc.aweme.lite:id/form_phone",
+          "text": "请输入手机号",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.ss.android.ugc.aweme.lite:id/form_skip_step",
+          "text": "跳过此步",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.Button",
+        "attributes": {
+          "id": "com.ss.android.ugc.aweme.lite:id/form_submit",
+          "text": "提交",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

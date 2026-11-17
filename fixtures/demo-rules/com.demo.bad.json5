@@ -1,0 +1,16 @@
+{
+  "id": "com.demo.bad",
+  "name": "故意写错的示例（用于演示校验器拦截）",
+  "groups": [
+    {
+      "key": 0,
+      "name": "开屏广告",
+      "rules": [
+        {
+          "key": 0,
+          "matches": "[id=\"com.demo.settings:id/skip_btn\"]"
+        }
+      ]
+    }
+  ]
+}

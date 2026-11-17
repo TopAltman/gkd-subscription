@@ -1,0 +1,37 @@
+{
+  "appId": "com.achievo.vipshop",
+  "appName": "唯品会",
+  "activityId": "com.achievo.vipshop.SplashActivity",
+  "kind": "positive",
+  "expectText": "跳过",
+  "expect": {
+    "text": "跳过"
+  },
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.achievo.vipshop:id/splash_ad_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.achievo.vipshop:id/skip_btn",
+          "desc": "跳过广告",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

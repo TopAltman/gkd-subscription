@@ -1,0 +1,42 @@
+{
+  "appId": "com.dianping.v1",
+  "appName": "大众点评",
+  "activityId": "com.dianping.v1.GuideActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.dianping.v1:id/guide_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.dianping.v1:id/guide_title",
+          "text": "欢迎使用",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.Button",
+        "attributes": {
+          "id": "com.dianping.v1:id/guide_skip",
+          "text": "跳过引导",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

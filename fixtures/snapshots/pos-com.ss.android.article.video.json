@@ -1,0 +1,55 @@
+{
+  "appId": "com.ss.android.article.video",
+  "appName": "西瓜视频",
+  "activityId": "com.ss.android.article.video.SplashActivity",
+  "kind": "positive",
+  "expectText": "跳过",
+  "expect": {
+    "text": "跳过"
+  },
+  "tree": {
+    "name": "android.widget.RelativeLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.ss.android.article.video:id/splash_ad_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.LinearLayout",
+        "attributes": {
+          "id": "com.ss.android.article.video:id/skip_container",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": [
+          {
+            "name": "android.widget.TextView",
+            "attributes": {
+              "id": "com.ss.android.article.video:id/skip_text",
+              "text": "跳过广告",
+              "visibleToUser": true
+            },
+            "children": []
+          },
+          {
+            "name": "android.widget.TextView",
+            "attributes": {
+              "id": "com.ss.android.article.video:id/count_down",
+              "text": "5",
+              "visibleToUser": true
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

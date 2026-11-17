@@ -1,0 +1,55 @@
+{
+  "appId": "com.taobao.idlefish",
+  "appName": "闲鱼",
+  "activityId": "com.taobao.idlefish.SplashActivity",
+  "kind": "positive",
+  "expectText": "跳过",
+  "expect": {
+    "text": "跳过"
+  },
+  "tree": {
+    "name": "android.widget.RelativeLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.taobao.idlefish:id/splash_ad_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.LinearLayout",
+        "attributes": {
+          "id": "com.taobao.idlefish:id/skip_container",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": [
+          {
+            "name": "android.widget.TextView",
+            "attributes": {
+              "id": "com.taobao.idlefish:id/skip_text",
+              "text": "跳过广告",
+              "visibleToUser": true
+            },
+            "children": []
+          },
+          {
+            "name": "android.widget.TextView",
+            "attributes": {
+              "id": "com.taobao.idlefish:id/count_down",
+              "text": "5",
+              "visibleToUser": true
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

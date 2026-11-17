@@ -1,0 +1,42 @@
+{
+  "appId": "com.taobao.taobao",
+  "appName": "淘宝",
+  "activityId": "com.taobao.taobao.GuideActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.taobao.taobao:id/guide_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.taobao.taobao:id/guide_title",
+          "text": "欢迎使用",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.Button",
+        "attributes": {
+          "id": "com.taobao.taobao:id/guide_skip",
+          "text": "跳过引导",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

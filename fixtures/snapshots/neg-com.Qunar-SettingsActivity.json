@@ -1,0 +1,52 @@
+{
+  "appId": "com.Qunar",
+  "appName": "去哪儿旅行",
+  "activityId": "com.Qunar.SettingsActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.LinearLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.Qunar:id/settings_title",
+          "text": "设置",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.Qunar:id/settings_account",
+          "text": "已登录：example_user",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.Button",
+        "attributes": {
+          "id": "com.Qunar:id/settings_skip_incompatible",
+          "text": "跳过不兼容项目",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.Qunar:id/settings_version",
+          "text": "版本 8.2.1",
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

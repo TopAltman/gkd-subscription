@@ -1,0 +1,27 @@
+{
+  "appId": "com.demo.splash",
+  "activityId": "com.demo.splash.SplashActivity",
+  "kind": "positive",
+  "expectText": "跳过",
+  "expect": { "text": "跳过", "id": "skip_btn" },
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": { "visibleToUser": true, "clickable": false },
+    "children": [
+      {
+        "name": "android.widget.TextView",
+        "attributes": { "text": "跳过 5", "clickable": true, "visibleToUser": true },
+        "children": []
+      },
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.demo.splash:id/skip_btn",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

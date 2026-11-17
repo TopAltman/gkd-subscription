@@ -1,0 +1,42 @@
+{
+  "appId": "com.tencent.mobileqq",
+  "appName": "QQ",
+  "activityId": "com.tencent.mobileqq.GuideActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.tencent.mobileqq:id/guide_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.tencent.mobileqq:id/guide_title",
+          "text": "欢迎使用",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.Button",
+        "attributes": {
+          "id": "com.tencent.mobileqq:id/guide_skip",
+          "text": "跳过引导",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "appId": "com.ss.android.ugc.aweme.lite",
+  "appName": "抖音极速版",
+  "activityId": "com.ss.android.ugc.aweme.lite.GuideActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.ss.android.ugc.aweme.lite:id/guide_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.ss.android.ugc.aweme.lite:id/guide_title",
+          "text": "欢迎使用",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.Button",
+        "attributes": {
+          "id": "com.ss.android.ugc.aweme.lite:id/guide_skip",
+          "text": "跳过引导",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

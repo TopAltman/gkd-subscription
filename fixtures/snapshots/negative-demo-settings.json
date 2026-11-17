@@ -1,0 +1,26 @@
+{
+  "appId": "com.demo.settings",
+  "activityId": "com.demo.settings.SettingsActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.LinearLayout",
+    "attributes": { "visibleToUser": true, "clickable": false },
+    "children": [
+      {
+        "name": "android.widget.TextView",
+        "attributes": { "text": "设置", "clickable": true, "visibleToUser": true },
+        "children": []
+      },
+      {
+        "name": "android.widget.Button",
+        "attributes": {
+          "id": "com.demo.settings:id/skip_btn",
+          "text": "跳过不兼容项目",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

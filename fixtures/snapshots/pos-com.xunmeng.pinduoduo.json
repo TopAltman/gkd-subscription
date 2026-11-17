@@ -1,0 +1,37 @@
+{
+  "appId": "com.xunmeng.pinduoduo",
+  "appName": "拼多多",
+  "activityId": "com.xunmeng.pinduoduo.SplashActivity",
+  "kind": "positive",
+  "expectText": "跳过",
+  "expect": {
+    "text": "跳过"
+  },
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.xunmeng.pinduoduo:id/splash_ad_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.xunmeng.pinduoduo:id/skip_btn",
+          "desc": "跳过广告",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

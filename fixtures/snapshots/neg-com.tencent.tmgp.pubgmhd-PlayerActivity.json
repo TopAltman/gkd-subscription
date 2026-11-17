@@ -1,0 +1,51 @@
+{
+  "appId": "com.tencent.tmgp.pubgmhd",
+  "appName": "和平精英",
+  "activityId": "com.tencent.tmgp.pubgmhd.PlayerActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.view.SurfaceView",
+        "attributes": {
+          "id": "com.tencent.tmgp.pubgmhd:id/video_surface",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.tencent.tmgp.pubgmhd:id/video_title",
+          "text": "第 3 集 精彩继续",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.tencent.tmgp.pubgmhd:id/video_skip_ad",
+          "text": "跳过广告",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.tencent.tmgp.pubgmhd:id/video_danmaku",
+          "text": "前排出售瓜子饮料",
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

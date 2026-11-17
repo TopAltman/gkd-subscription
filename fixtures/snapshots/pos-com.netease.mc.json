@@ -1,0 +1,55 @@
+{
+  "appId": "com.netease.mc",
+  "appName": "我的世界",
+  "activityId": "com.netease.mc.SplashActivity",
+  "kind": "positive",
+  "expectText": "跳过",
+  "expect": {
+    "text": "跳过"
+  },
+  "tree": {
+    "name": "android.widget.RelativeLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.netease.mc:id/splash_ad_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.LinearLayout",
+        "attributes": {
+          "id": "com.netease.mc:id/skip_container",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": [
+          {
+            "name": "android.widget.TextView",
+            "attributes": {
+              "id": "com.netease.mc:id/skip_text",
+              "text": "跳过广告",
+              "visibleToUser": true
+            },
+            "children": []
+          },
+          {
+            "name": "android.widget.TextView",
+            "attributes": {
+              "id": "com.netease.mc:id/count_down",
+              "text": "5",
+              "visibleToUser": true
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

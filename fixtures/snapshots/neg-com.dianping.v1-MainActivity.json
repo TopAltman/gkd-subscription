@@ -1,0 +1,52 @@
+{
+  "appId": "com.dianping.v1",
+  "appName": "大众点评",
+  "activityId": "com.dianping.v1.MainActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.LinearLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.dianping.v1:id/main_title",
+          "text": "首页",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.dianping.v1:id/main_banner_text",
+          "text": "点击跳过广告可获得更多奖励",
+          "clickable": false,
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.dianping.v1:id/main_feed_1",
+          "text": "今日热点：某某宣布新计划",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.dianping.v1:id/main_feed_2",
+          "text": "热门评论精选",
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

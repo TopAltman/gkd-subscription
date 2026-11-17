@@ -1,0 +1,54 @@
+{
+  "appId": "com.taobao.taobao",
+  "appName": "淘宝",
+  "activityId": "com.taobao.taobao.SplashActivity",
+  "kind": "positive",
+  "expectText": "跳过",
+  "expect": {
+    "text": "跳过"
+  },
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.taobao.taobao:id/splash_ad_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.taobao.taobao:id/count_down",
+          "text": "5",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.taobao.taobao:id/skip_btn",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.taobao.taobao:id/skip_text",
+          "text": "跳过",
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

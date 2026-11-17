@@ -1,0 +1,20 @@
+{
+  "_comment": "订阅部署配置 —— 长期部署时改这一个文件就够了，不用动代码、不用配 CI 密钥。",
+  "_howto": [
+    "baseUrl 是客户端拉取订阅的基地址，最终会拼成 <baseUrl>/gkd.json5 与 <baseUrl>/gkd.version.json5。",
+    "它会写进订阅文件内部的 updateUrl / checkUpdateUrl —— 客户端靠这两个地址做自动更新，",
+    "所以这里必须是手机能访问到的真实地址。",
+    "",
+    "两种托管方式（选一个，删掉另一个）：",
+    "  GitHub Pages（推荐）：https://<你的账号>.github.io/<你的仓库>",
+    "    - 需要在仓库 Settings → Pages → Source 选 GitHub Actions",
+    "    - 国内访问比 raw.githubusercontent 稳，且没有 CDN 缓存延迟",
+    "  raw.githubusercontent：https://raw.githubusercontent.com/<你的账号>/<你的仓库>/main/dist",
+    "    - 零配置，现有 CI 提交回 main 就能用",
+    "    - 有约 5 分钟的 CDN 缓存延迟，raw 在国内偶尔不稳",
+    "",
+    "改完提交即可，下一次 CI 构建（每 6 小时或手动触发）会带上新地址。"
+  ],
+  "baseUrl": "https://TopAltman.github.io/gkd-subscription",
+  "subscriptionId": 90210
+}

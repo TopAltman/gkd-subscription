@@ -1,0 +1,19 @@
+{
+  "id": "com.demo.splash",
+  "name": "示例应用",
+  "groups": [
+    {
+      "key": 0,
+      "name": "开屏广告",
+      "rules": [
+        {
+          "key": 0,
+          "matches": "[id=\"com.demo.splash:id/skip_btn\"]",
+          "actionMaximum": 1,
+          "matchTime": 10000,
+          "resetMatch": "app"
+        }
+      ]
+    }
+  ]
+}

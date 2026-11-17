@@ -1,0 +1,55 @@
+{
+  "appId": "com.tencent.qqmail",
+  "appName": "QQ邮箱",
+  "activityId": "com.tencent.qqmail.SplashActivity",
+  "kind": "positive",
+  "expectText": "跳过",
+  "expect": {
+    "text": "跳过"
+  },
+  "tree": {
+    "name": "android.widget.RelativeLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.tencent.qqmail:id/splash_ad_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.LinearLayout",
+        "attributes": {
+          "id": "com.tencent.qqmail:id/skip_container",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": [
+          {
+            "name": "android.widget.TextView",
+            "attributes": {
+              "id": "com.tencent.qqmail:id/skip_text",
+              "text": "跳过广告",
+              "visibleToUser": true
+            },
+            "children": []
+          },
+          {
+            "name": "android.widget.TextView",
+            "attributes": {
+              "id": "com.tencent.qqmail:id/count_down",
+              "text": "5",
+              "visibleToUser": true
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

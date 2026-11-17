@@ -1,0 +1,51 @@
+{
+  "appId": "com.ss.android.homed",
+  "appName": "房产",
+  "activityId": "com.ss.android.homed.PlayerActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.view.SurfaceView",
+        "attributes": {
+          "id": "com.ss.android.homed:id/video_surface",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.ss.android.homed:id/video_title",
+          "text": "第 3 集 精彩继续",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.ss.android.homed:id/video_skip_ad",
+          "text": "跳过广告",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.ss.android.homed:id/video_danmaku",
+          "text": "前排出售瓜子饮料",
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

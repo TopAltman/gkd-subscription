@@ -1,0 +1,46 @@
+{
+  "appId": "com.tencent.tmgp.pubgmhd",
+  "appName": "和平精英",
+  "activityId": "com.tencent.tmgp.pubgmhd.SplashActivity",
+  "kind": "positive",
+  "expectText": "跳过",
+  "expect": {
+    "text": "跳过"
+  },
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.tencent.tmgp.pubgmhd:id/splash_ad_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.tencent.tmgp.pubgmhd:id/count_down",
+          "text": "5",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.tencent.tmgp.pubgmhd:id/skip_btn",
+          "text": "跳过 5",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

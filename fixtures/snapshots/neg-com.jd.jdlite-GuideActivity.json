@@ -1,0 +1,42 @@
+{
+  "appId": "com.jd.jdlite",
+  "appName": "京东极速版",
+  "activityId": "com.jd.jdlite.GuideActivity",
+  "kind": "negative",
+  "tree": {
+    "name": "android.widget.FrameLayout",
+    "attributes": {
+      "visibleToUser": true,
+      "clickable": false
+    },
+    "children": [
+      {
+        "name": "android.widget.ImageView",
+        "attributes": {
+          "id": "com.jd.jdlite:id/guide_image",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.TextView",
+        "attributes": {
+          "id": "com.jd.jdlite:id/guide_title",
+          "text": "欢迎使用",
+          "visibleToUser": true
+        },
+        "children": []
+      },
+      {
+        "name": "android.widget.Button",
+        "attributes": {
+          "id": "com.jd.jdlite:id/guide_skip",
+          "text": "跳过引导",
+          "clickable": true,
+          "visibleToUser": true
+        },
+        "children": []
+      }
+    ]
+  }
+}

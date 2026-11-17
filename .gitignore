@@ -1,0 +1,9 @@
+node_modules/
+.local/
+.temp/
+*.log
+.DS_Store
+
+# 聚合产物由 CI 生成并提交，此处忽略本地临时构建
+# 如需完全忽略 dist/，取消下行注释（但 GKD 客户端需要从仓库读取 dist，故默认保留）
+# dist/
