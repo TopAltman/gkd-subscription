@@ -15,6 +15,6 @@
     "",
     "改完提交即可，下一次 CI 构建（每 6 小时或手动触发）会带上新地址。"
   ],
-  "baseUrl": "https://cdn.jsdelivr.net/gh/TopAltman/gkd-subscription@main/dist",
+  "baseUrl": "https://topaltman.github.io/gkd-subscription",
   "subscriptionId": 90210
 }
