@@ -23,9 +23,11 @@ on:
     paths:
       - 'scripts/rules-aggregator/**'
       - 'scripts/rule-validator/**'
+      - 'rules/snapshot-corpus/**'
       - 'rules/local/**'
       - 'subscription.config.json'
       - 'package.json'
+      - '.github/workflows/**'
 
 concurrency:
   group: aggregate-rules
@@ -81,6 +83,9 @@ jobs:
           path: 'dist'
 
       - name: 提交产物到 main（raw.githubusercontent.com 兜底）
+        # 允许失败：这一步依赖仓库的 workflow permissions 设置为「读写」，
+        # 万一没设成也不该拖垮 Pages 发布 —— Pages 才是主路径，raw 只是兜底。
+        continue-on-error: true
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
@@ -104,6 +109,9 @@ jobs:
       - name: 配置 Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          # 仓库没开过 Pages 时自动开启，省掉用户手动去 Settings → Pages 点一次
+          enablement: true
 
       - name: 部署到 GitHub Pages
         id: deployment
