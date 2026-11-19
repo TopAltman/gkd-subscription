@@ -1,10 +1,10 @@
 // 本文件由 scripts/rules-aggregator/aggregate.mjs 自动生成，请勿手工编辑。
-// 生成时间: 2026-11-19T13:29:54.162Z
-// version: 36
+// 生成时间: 2026-11-19T19:12:17.407Z
+// version: 37
 {
   id: 90210,
   name: '跳开屏广告 · 自动聚合订阅',
-  version: 36,
+  version: 37,
   author: 'auto-aggregator',
   updateUrl: 'https://topaltman.github.io/gkd-subscription/gkd.json5',
   checkUpdateUrl: 'https://topaltman.github.io/gkd-subscription/gkd.version.json5',
